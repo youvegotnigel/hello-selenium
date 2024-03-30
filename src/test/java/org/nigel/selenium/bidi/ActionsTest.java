@@ -33,6 +33,7 @@ public class ActionsTest extends BaseTest {
     @Test
     void canPerformInputActions() {
         driver.get("https://www.selenium.dev/selenium/web/formSelectionPage.html");
+        driver.manage().window().maximize();
 
         List<WebElement> options = driver.findElements(By.tagName("option"));
 
