@@ -1,6 +1,12 @@
 https://gist.github.com/titusfortner/57f60a34d36cf949deba54c376c2bf4c
 https://github.com/saucelabs-training/demo-java/blob/main/selenium-examples/src/test/java/com/saucedemo/selenium/selenium_features/DevToolsTest.java#L296
 https://github.com/saucelabs-training/demo-java/blob/main/selenium-examples/src/test/java/com/saucedemo/selenium/selenium_features/DevToolsTest.java
+
+# GitHub
 https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk//examples/java/src/test/java/dev/selenium/bidirectional/webdriver_bidi/LogTest.java
 
+# YouTube
 https://www.youtube.com/watch?v=cVd8XBxpRCQ
+
+# BiDi changes done in Selenium 4.19.1
+https://www.selenium.dev/blog/2024/bidi-java-breaking-change/
