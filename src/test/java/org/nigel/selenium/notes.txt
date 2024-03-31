@@ -9,3 +9,10 @@ https://www.youtube.com/watch?v=cVd8XBxpRCQ
 
 # BiDi changes done in Selenium 4.19.1
 https://www.selenium.dev/blog/2024/bidi-java-breaking-change/
+
+
+# References
+https://w3c.github.io/webdriver-bidi/
+https://chromedevtools.github.io/devtools-protocol/
+https://www.selenium.dev/documentation/webdriver/bidirectional/webdriver_bidi/
+https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/
