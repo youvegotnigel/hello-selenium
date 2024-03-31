@@ -6,9 +6,7 @@ import org.openqa.selenium.bidi.log.ConsoleLogEntry;
 import org.openqa.selenium.bidi.module.LogInspector;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -17,7 +15,7 @@ import java.util.concurrent.TimeoutException;
 
 public class LogsTest extends BaseTest {
 
-    @BeforeTest
+    @BeforeMethod
     public void startTest(){
         ChromeOptions options = new ChromeOptions();
         options.setCapability("webSocketUrl", true);
@@ -26,7 +24,7 @@ public class LogsTest extends BaseTest {
 
 
     @Test
-    public void logTest() throws ExecutionException, InterruptedException, TimeoutException {
+    public void consoleLogTest() throws ExecutionException, InterruptedException, TimeoutException {
 
         try (LogInspector logInspector = new LogInspector(driver)) {
 
@@ -40,11 +38,61 @@ public class LogsTest extends BaseTest {
             ConsoleLogEntry logEntry = future.get(5, TimeUnit.SECONDS);
             System.out.println(logEntry.getText());
         }
+    }
 
+    @Test
+    public void consoleErrorTest() throws ExecutionException, InterruptedException, TimeoutException {
+
+        try (LogInspector logInspector = new LogInspector(driver)) {
+
+            CompletableFuture<ConsoleLogEntry> future = new CompletableFuture<>();
+            logInspector.onConsoleEntry(future::complete);
+
+            driver.get("https://www.selenium.dev/selenium/web/bidi/logEntryAdded.html");
+            driver.manage().window().maximize();
+            driver.findElement(By.id("consoleError")).click();
+
+            ConsoleLogEntry logEntry = future.get(5, TimeUnit.SECONDS);
+            System.out.println(logEntry.getText());
+        }
+    }
+
+    @Test
+    public void jsExceptionTest() throws ExecutionException, InterruptedException, TimeoutException {
+
+        try (LogInspector logInspector = new LogInspector(driver)) {
+
+            CompletableFuture<ConsoleLogEntry> future = new CompletableFuture<>();
+            logInspector.onConsoleEntry(future::complete);
+
+            driver.get("https://www.selenium.dev/selenium/web/bidi/logEntryAdded.html");
+            driver.manage().window().maximize();
+            driver.findElement(By.id("jsException")).click();
+
+            ConsoleLogEntry logEntry = future.get(5, TimeUnit.SECONDS);
+            System.out.println(logEntry.getText());
+        }
+    }
+
+    @Test
+    public void logWithStacktraceTest() throws ExecutionException, InterruptedException, TimeoutException {
+
+        try (LogInspector logInspector = new LogInspector(driver)) {
+
+            CompletableFuture<ConsoleLogEntry> future = new CompletableFuture<>();
+            logInspector.onConsoleEntry(future::complete);
+
+            driver.get("https://www.selenium.dev/selenium/web/bidi/logEntryAdded.html");
+            driver.manage().window().maximize();
+            driver.findElement(By.id("logWithStacktrace")).click();
+
+            ConsoleLogEntry logEntry = future.get(5, TimeUnit.SECONDS);
+            System.out.println(logEntry.getText());
+        }
     }
 
 
-    @AfterTest
+    @AfterMethod
     public void stopTest() {
         tearDown();
     }
