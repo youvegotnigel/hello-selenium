@@ -40,7 +40,15 @@ public class TheDogeBallTest {
         int y = rect.y + rect.height/2;
 
         Actions actions = new Actions(driver);
-        actions.moveToLocation(x,y).click().perform();
+        actions.moveToLocation(x,y).perform();
+
+        // wait for animations to complete
+        Thread.sleep(500);
+        Rectangle newRect = findElement(LOGIN_BUTTON).getRect();
+        int x1 = newRect.x + newRect.width/2;
+        int y1 = newRect.y + newRect.height/2;
+        actions.moveToLocation(x1,y1).click().perform();
+
         Thread.sleep(2000);
     }
 
