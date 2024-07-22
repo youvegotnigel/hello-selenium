@@ -16,3 +16,11 @@ https://w3c.github.io/webdriver-bidi/
 https://chromedevtools.github.io/devtools-protocol/
 https://www.selenium.dev/documentation/webdriver/bidirectional/webdriver_bidi/
 https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/
+
+
+# BiDi Examples from Selenium GitHub
+https://github.com/SeleniumHQ/seleniumhq.github.io/blob/trunk/examples/java/src/test/java/dev/selenium/bidirectional/webdriver_bidi/LogTest.java
+
+
+# Selenium Conf 2024
+https://www.youtube.com/watch?v=Kgg4HyOJhFo&list=PL9Z-JgiTsOYRJCXuEOGXLH1w1oImoprnq&index=7
